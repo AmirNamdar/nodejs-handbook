@@ -1,0 +1,13 @@
+from https://nodejs.org/api/stream.html#stream_buffering
+
+- Both Writable and Readable streams will store data in an internal buffer.
+
+- The amount of data potentially buffered depends on the highWaterMark option passed into the stream's constructor
+
+- Data is buffered in Readable streams when the implementation calls stream.push(chunk). 
+
+- If the consumer of the Stream does not call stream.read(), the data will sit in the internal queue until it is consumed.
+
+- Once the total size of the internal read buffer reaches the threshold specified by highWaterMark, the stream will temporarily stop reading data from the underlying resource until the data currently buffered can be consumed 
+    (that is, the stream will stop calling the internal readable._read() method that is used to fill the read buffer).
+

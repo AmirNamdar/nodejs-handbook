@@ -13,14 +13,12 @@ app.get('/not_streamed_text', (req, res) => {
     });
 });
 
-
 app.get('/streamed_text', (req, res) => {
     var stream = fs.createReadStream('assets/SampleText-1-905mb.txt');
     stream.pipe(res);
     const memoryUsed = process.memoryUsage().heapUsed / 1024 / 1024;
     console.log(`The script uses approximately ${Math.round(memoryUsed * 100) / 100} MB`);
 });
-
 
 app.listen(port, () => {
     console.log(`Streaming app listening at http://localhost:${port}`)
