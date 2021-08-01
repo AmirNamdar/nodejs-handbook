@@ -1,0 +1,18 @@
+- Readable streams are an abstraction for a source from which data is consumed.
+- Readable streams effectively operate in one of two modes: 
+    flowing - data is provided to the the reader as soon as it available
+    paused - readable.read() must be called to swith to flowing mode
+
+- data from a readable can be consumed in 3 ways:
+    * adding a 'data' listener
+    * calling readable.resume()
+    * calling readable.pipe()
+
+- If a Readable is switched into flowing mode and there are no consumers available to handle the data, that data will be lost. This can occur, for instance, when the readable.resume() method is called without a listener attached to the 'data' event, or when a 'data' event handler is removed from the stream.
+
+- reable states:
+    * readable.readableFlowing === null     no mechanism for consuming the stream's data is provided. Therefore, the stream will not generate data.
+    * readable.readableFlowing === false
+    * readable.readableFlowing === true
+
+- While readable.readableFlowing is false, data may be accumulating within the stream's internal buffer.
