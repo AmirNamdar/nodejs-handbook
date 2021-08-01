@@ -1,4 +1,4 @@
-import constants    from '../../common/constants';
+import constants    from '../common/constants';
 
 import http         from 'http';
 import stream       from 'stream';
