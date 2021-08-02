@@ -1,6 +1,6 @@
 import constants    from '../common/constants';
 import stream       from 'stream';
-import fs, { read }           from 'fs';
+import fs           from 'fs';
 
 const readFilePath      = './src/executers/readable/beepboop.txt';
 const writeFilePath     = './src/executers/readable/yoloFile.txt';
